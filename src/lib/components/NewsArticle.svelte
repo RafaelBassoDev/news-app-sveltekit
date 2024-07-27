@@ -1,17 +1,10 @@
 <script lang="ts">
 	import NewsArticleModel from '$models/NewsArticleModel';
-	import { createEventDispatcher } from 'svelte';
 	export let article: NewsArticleModel;
-
-	const dispatch = createEventDispatcher<{ click: NewsArticleModel }>();
-
-	function handleClick() {
-		dispatch('click', article);
-	}
 </script>
 
 <div class="news-article">
-	<button on:click={handleClick}>
+	<a href="/news/{article.id}">
 		<div class="news-article-content">
 			<div class="news-article-content-info">
 				<p class="author">{article.author}</p>
@@ -24,7 +17,7 @@
 		<div class="news-article-footer">
 			<span class="publish-time">{article.publishTime}</span>
 		</div>
-	</button>
+	</a>
 </div>
 
 <style lang="scss">
@@ -38,8 +31,9 @@
 
 		border-bottom: 2px solid var(--separator-color);
 
-		button {
+		a {
 			all: unset;
+			cursor: pointer;
 		}
 
 		&-content {

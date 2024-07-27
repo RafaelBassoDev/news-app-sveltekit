@@ -1,4 +1,5 @@
 export default class NewsArticleModel {
+	id: string;
 	title: string;
 	author: string;
 	content: string;
@@ -12,6 +13,7 @@ export default class NewsArticleModel {
 		publishTime: string,
 		bannerUrl: string = ''
 	) {
+		this.id = crypto.randomUUID();
 		this.title = title;
 		this.author = author;
 		this.content = content;
