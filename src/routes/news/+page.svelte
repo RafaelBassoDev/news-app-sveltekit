@@ -18,6 +18,12 @@
 		gap: 1em;
 
 		font-size: 1.6em;
-		padding: 1em 2em;
+		padding: 0 2em;
+	}
+
+	@media screen and (min-width: 769px) {
+		.news-container {
+			max-width: 768px;
+		}
 	}
 </style>
