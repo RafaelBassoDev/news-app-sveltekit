@@ -1,18 +1,17 @@
 <script lang="ts">
-	import NewsArticleModel from '$models/NewsArticleModel';
 	import NewsArticle from '$components/NewsArticle.svelte';
 
-	export let news: NewsArticleModel[];
+	export let data;
 </script>
 
-<div class="news">
-	{#each news as article}
+<div class="news-container">
+	{#each data.newsList as article}
 		<NewsArticle {article} on:click />
 	{/each}
 </div>
 
 <style lang="scss">
-	.news {
+	.news-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
