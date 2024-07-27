@@ -1,21 +1,30 @@
 <script lang="ts">
-	import NewsModel from '$lib/models/NewsModel';
-	export let article: NewsModel;
+	import NewsArticleModel from '$models/NewsArticleModel';
+	import { createEventDispatcher } from 'svelte';
+	export let article: NewsArticleModel;
+
+	const dispatch = createEventDispatcher<{ click: NewsArticleModel }>();
+
+	function handleClick() {
+		dispatch('click', article);
+	}
 </script>
 
 <div class="news-article">
-	<div class="news-article-content">
-		<div class="news-article-content-info">
-			<p class="author">{article.author}</p>
-			<p class="title">{article.title}</p>
+	<button on:click={handleClick}>
+		<div class="news-article-content">
+			<div class="news-article-content-info">
+				<p class="author">{article.author}</p>
+				<p class="title">{article.title}</p>
+			</div>
+			<div class="news-article-content-image">
+				<img src={article.bannerUrl} alt="news" />
+			</div>
 		</div>
-		<div class="news-article-content-image">
-			<img src={article.bannerUrl} alt="news" />
+		<div class="news-article-footer">
+			<span class="publish-time">{article.publishTime}</span>
 		</div>
-	</div>
-	<div class="news-article-footer">
-		<span class="publish-time">{article.publishTime}</span>
-	</div>
+	</button>
 </div>
 
 <style lang="scss">
@@ -28,6 +37,10 @@
 		padding: 1em;
 
 		border-bottom: 2px solid var(--separator-color);
+
+		button {
+			all: unset;
+		}
 
 		&-content {
 			display: flex;

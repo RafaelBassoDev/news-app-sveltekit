@@ -1,13 +1,13 @@
 <script lang="ts">
-	import NewsModel from '$lib/models/NewsModel';
-	import NewsArticle from './NewsArticle.svelte';
+	import NewsArticleModel from '$models/NewsArticleModel';
+	import NewsArticle from '$components/NewsArticle.svelte';
 
-	export let news: NewsModel[];
+	export let news: NewsArticleModel[];
 </script>
 
 <div class="news">
 	{#each news as article}
-		<NewsArticle {article} />
+		<NewsArticle {article} on:click />
 	{/each}
 </div>
 

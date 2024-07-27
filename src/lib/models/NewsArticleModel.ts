@@ -1,4 +1,4 @@
-export default class News {
+export default class NewsArticleModel {
 	title: string;
 	author: string;
 	content: string;
