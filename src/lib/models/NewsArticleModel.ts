@@ -1,5 +1,5 @@
 export type NewsArticleModel = {
-	id: number;
+	id: string;
 	title: string;
 	author: string;
 	content: string;

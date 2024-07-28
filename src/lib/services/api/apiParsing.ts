@@ -8,7 +8,7 @@ function parse(response: APIResponse): NewsArticleModel[] {
 
 	articles.forEach((article) => {
 		parsedData.push({
-			id: cyrb53(article.title),
+			id: cyrb53(article.title).toString(),
 			author: article.author,
 			title: article.title,
 			content: article.content,
