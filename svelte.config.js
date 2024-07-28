@@ -16,7 +16,8 @@ const config = {
 			$components: 'src/lib/components',
 			$models: 'src/lib/models',
 			$stores: 'src/lib/stores',
-			$ambient: 'src/ambient.d.ts'
+			$ambient: 'src/ambient.d.ts',
+			$services: 'src/lib/services'
 		}
 	}
 };
