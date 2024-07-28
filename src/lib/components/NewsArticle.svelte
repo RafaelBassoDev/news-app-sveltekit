@@ -10,9 +10,11 @@
 				<p class="author">{article.author}</p>
 				<p class="title">{article.title}</p>
 			</div>
-			<div class="news-article-content-image">
-				<img src={article.bannerUrl} alt="news" />
-			</div>
+			{#if article.bannerUrl && false}
+				<div class="news-article-content-image">
+					<img src={article.bannerUrl} alt="news" />
+				</div>
+			{/if}
 		</div>
 		<div class="news-article-footer">
 			<span class="publish-time">{article.publishTime}</span>
