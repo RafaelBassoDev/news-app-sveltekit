@@ -1,5 +1,5 @@
 import { cache } from '$services/api/apiCaching';
-import { fetchTopHeadlines } from '$services/api/apiFetching';
+import { request } from '$services/api/apiFetching';
 import { parseResponse } from '$services/api/apiParse';
 
-export { cache, fetchTopHeadlines, parseResponse };
+export { cache, request, parseResponse };

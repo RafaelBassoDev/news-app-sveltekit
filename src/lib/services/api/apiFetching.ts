@@ -20,8 +20,8 @@ async function query(endpoint: Endpoint, args: string[]) {
 	});
 }
 
-async function fetchTopHeadlines(args: string[] = []): Promise<APIResponse> {
-	const response = await query('top-headlines', args);
+async function request(endpoint: Endpoint, args: string[] = []) {
+	const response = await query(endpoint, args);
 
 	if (!response.ok) {
 		const json: APIError = await response.json();
@@ -31,4 +31,4 @@ async function fetchTopHeadlines(args: string[] = []): Promise<APIResponse> {
 	return (await response.json()) as APIResponse;
 }
 
-export { fetchTopHeadlines, type APIResponse };
+export { request };
