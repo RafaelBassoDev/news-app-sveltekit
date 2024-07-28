@@ -1,4 +1,4 @@
-type NewsArticleModel = {
+export type NewsArticleModel = {
 	id: string;
 	title: string;
 	author: string;
@@ -6,5 +6,3 @@ type NewsArticleModel = {
 	publishTime: string;
 	bannerUrl: string;
 };
-
-export { NewsArticleModel };

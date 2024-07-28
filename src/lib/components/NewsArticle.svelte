@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { NewsArticleModel } from '$ambient';
-
+	import type { NewsArticleModel } from '$models/NewsArticleModel';
 	export let article: NewsArticleModel;
 </script>
 
