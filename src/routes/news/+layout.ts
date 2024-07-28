@@ -1,38 +1,16 @@
-import placeholderUrl from '$lib/assets/placeholder-image.jpg';
-import type { NewsArticleModel } from '$ambient';
+import type { NewsArticleModel } from '$models/NewsArticleModel';
+import { request, parseResponse, cache } from '$services/api';
 
-export function load() {
-	const newsList: NewsArticleModel[] = [
-		{
-			id: crypto.randomUUID(),
-			title:
-				'1How the Park fire near Chico exploded into Californias largest of the year - Yahoo! Voices',
-			author: 'BBC News',
-			content: 'content',
-			publishTime: '1 hour ago',
-			bannerUrl: placeholderUrl
-		},
-		{
-			id: crypto.randomUUID(),
-			title:
-				'1How the Park fire near Chico exploded into Californias largest of the year - Yahoo! Voices',
-			author: 'BBC News',
-			content: 'content',
-			publishTime: '1 hour ago',
-			bannerUrl: placeholderUrl
-		},
-		{
-			id: crypto.randomUUID(),
-			title:
-				'1How the Park fire near Chico exploded into Californias largest of the year - Yahoo! Voices',
-			author: 'BBC News',
-			content: 'content',
-			publishTime: '1 hour ago',
-			bannerUrl: placeholderUrl
-		}
-	];
+export async function load() {
+	let articles: NewsArticleModel[] = [];
 
-	return {
-		newsList
-	};
+	await request('everything', ['q=technology', 'language=en', 'sortBy=popularity', 'pageSize=20'])
+		.then((res) => parseResponse(res))
+		.then((data) => {
+			cache(data);
+			console.log(data);
+			articles = data;
+		});
+
+	return { articles };
 }

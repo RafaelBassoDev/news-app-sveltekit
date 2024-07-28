@@ -5,7 +5,7 @@
 </script>
 
 <div class="news-container">
-	{#each data.newsList as article}
+	{#each data.articles as article}
 		<NewsArticle {article} on:click />
 	{/each}
 </div>
